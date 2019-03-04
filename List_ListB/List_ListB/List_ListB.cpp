@@ -10,6 +10,7 @@
 int main()
 {
     std::cout << "Hello World World!\n"; 
+	std::cout << "mini programita!\n";
 	List<int> lm("Lista1");
 
 	lm.push_front(30);
