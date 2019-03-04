@@ -23,7 +23,6 @@ private:
 	static void insertR(link &p, T x, int pos);
 
 public:
-
 	List(string nombre);
 	int len();
 	void push_front(T x);
