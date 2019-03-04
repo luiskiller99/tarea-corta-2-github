@@ -103,37 +103,36 @@ void List<T>::insertarR(T x, int pos) {
 	insertR(primero, x, pos);
 	tam++;
 }
-
+//luis
 template<class T>
-bool List<T>::remove(int pos, T & x)
-{
+bool List<T>::remove(int pos, T & x){
 	return false;
 }
-
+//luis
 template<class T>
 bool List<T>::pop(T & x)
 {
 	return false;
 }
-
+//luis
 template<class T>
 bool List<T>::pop_back(T & x)
 {
 	return false;
 }
-
+//marco
 template<class T>
 bool List<T>::get(int pos, T & element)
 {
 	return false;
 }
-
+//marco
 template<class T>
 bool List<T>::get_front(T & element)
 {
 	return false;
 }
-
+//marco
 template<class T>
 bool List<T>::get_back(T & element)
 {
