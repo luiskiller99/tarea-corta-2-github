@@ -74,7 +74,26 @@ int main(){
 		la.print();
 		std::cout << "\n";
 	}
-	/*Prueba */
+	/*Prueba de popback*/
+	else if (false) {
+		std::cout << "\nPrueba del popback en List<int>\n";
+		lm.pop_back(holis);
+		std::cout << "\nelimino a :" << holis << "\n";
+		lm.print();
+		lm.pop_back(holis);
+		std::cout << "\nelimino a :" << holis << "\n";
+		lm.print();
+		std::cout << "\n";
+
+		std::cout << "\nPrueba del popback en List<String>\n";
+		la.pop_back(holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		la.pop_back(holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		std::cout << "\n";
+	}
 	
 	std::cout << "\n";
 }

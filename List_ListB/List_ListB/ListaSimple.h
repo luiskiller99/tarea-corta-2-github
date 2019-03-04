@@ -143,10 +143,18 @@ bool List<T>::pop(T & x){
 	}
 	return false;
 }
-//luis
+//luis no realizada, preguntar al profe
 template<class T>
-bool List<T>::pop_back(T & x)
-{
+bool List<T>::pop_back(T & x){	
+	link p = primero;
+	if (tam >= 1) {
+		while (p->siguiente)  
+			p = p->siguiente;			
+		x = p->elemento;
+		tam--;
+		delete p;
+		return true;
+	}
 	return false;
 }
 //marco
