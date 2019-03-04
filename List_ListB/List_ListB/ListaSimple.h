@@ -106,6 +106,28 @@ void List<T>::insertarR(T x, int pos) {
 //luis
 template<class T>
 bool List<T>::remove(int pos, T & x){
+	int cont = 0;
+	link p = primero;
+	//caso especial para primera pocision
+	if (pos == 0) {
+		link aux = p;
+		primero = p->siguiente;
+		x = aux->elemento;
+		delete aux;
+		return true;
+	}
+	//para el resto de posiciones
+	while (p) {
+		if (pos == ++cont) {			
+			link aux = p->siguiente;
+			p->siguiente = p->siguiente->siguiente;
+			x = aux->elemento;
+			delete aux;
+			tam--;
+			return true;
+		}	
+		p = p->siguiente;
+	}
 	return false;
 }
 //luis

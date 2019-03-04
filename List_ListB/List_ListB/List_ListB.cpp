@@ -7,12 +7,8 @@
 #include <iostream>
 #include "ListaSimple.h"
 
-int main()
-{
-    std::cout << "Hello World World!\n"; 
-	std::cout << "mini programita!\n";
+int main(){    
 	List<int> lm("Lista1");
-
 	lm.push_front(30);
 	lm.push_front(20);
 	lm.push_front(10);
@@ -24,11 +20,26 @@ int main()
 	lm.insertarR(999, 1);
 	lm.print();
 	std::cout << "\n";
+
+	/*Prueba de remove*/
+	int holis;
+	lm.remove(0,holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	lm.remove(4, holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	lm.remove(6, holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	std::cout << "\n";
+
 	List<string> la("Personas");
 	la.push_back("ana");
 	la.push_back("juan");
 	la.print();
 	std::cout << "\n";
+
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
