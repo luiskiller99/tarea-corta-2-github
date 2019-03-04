@@ -103,7 +103,7 @@ void List<T>::insertarR(T x, int pos) {
 	insertR(primero, x, pos);
 	tam++;
 }
-//luis
+//luis listo
 template<class T>
 bool List<T>::remove(int pos, T & x){
 	int cont = 0;
@@ -130,10 +130,17 @@ bool List<T>::remove(int pos, T & x){
 	}
 	return false;
 }
-//luis
+//luis listo
 template<class T>
-bool List<T>::pop(T & x)
-{
+bool List<T>::pop(T & x){	
+	if (tam >= 1) {
+		link p = primero;
+		link aux = p;
+		primero = p->siguiente;
+		x = aux->elemento;
+		delete aux;
+		return true;
+	}
 	return false;
 }
 //luis

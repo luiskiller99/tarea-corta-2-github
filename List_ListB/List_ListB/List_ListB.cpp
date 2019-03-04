@@ -8,6 +8,7 @@
 #include "ListaSimple.h"
 
 int main(){    
+	/*lista numeros*/
 	List<int> lm("Lista1");
 	lm.push_front(30);
 	lm.push_front(20);
@@ -20,26 +21,62 @@ int main(){
 	lm.insertarR(999, 1);
 	lm.print();
 	std::cout << "\n";
-
-	/*Prueba de remove*/
-	int holis;
-	lm.remove(0,holis);
-	std::cout << "\nelimino a :" << holis << "\n";
-	lm.print();
-	lm.remove(4, holis);
-	std::cout << "\nelimino a :" << holis << "\n";
-	lm.print();
-	lm.remove(6, holis);
-	std::cout << "\nelimino a :" << holis << "\n";
-	lm.print();
-	std::cout << "\n";
-
+	/*lista personas*/
 	List<string> la("Personas");
 	la.push_back("ana");
+	la.push_back("Luis");
 	la.push_back("juan");
 	la.print();
 	std::cout << "\n";
 
+	int holis;
+	string holiss;
+	/*Prueba de remove*/
+	if (false) {
+		std::cout << "\nPrueba del remove en List<int>\n";
+		lm.remove(0, holis);
+		std::cout << "\nelimino a :" << holis << "\n";
+		lm.print();
+		lm.remove(4, holis);
+		std::cout << "\nelimino a :" << holis << "\n";
+		lm.print();
+		lm.remove(6, holis);
+		std::cout << "\nelimino a :" << holis << "\n";
+		lm.print();
+		std::cout << "\n";
+
+		std::cout << "\nPrueba del remove en List<String>\n";
+		la.remove(0, holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		la.remove(1, holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		std::cout << "\n";
+	}
+	/*Prueva de pop*/
+	else if(false) {		
+		std::cout << "\nPrueba del pop en List<int>\n";
+		lm.pop(holis);
+		std::cout << "\nelimino a :" << holis << "\n";
+		lm.print();
+		lm.pop(holis);
+		std::cout << "\nelimino a :" << holis << "\n";
+		lm.print();
+		std::cout << "\n";
+
+		std::cout << "\nPrueba del pop en List<String>\n";
+		la.pop(holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		la.pop(holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		std::cout << "\n";
+	}
+	/*Prueba */
+	
+	std::cout << "\n";
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
