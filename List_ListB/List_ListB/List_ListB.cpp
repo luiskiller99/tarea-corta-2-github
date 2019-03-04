@@ -3,10 +3,31 @@
 
 #include "pch.h"
 #include <iostream>
+#include "pch.h"
+#include <iostream>
+#include "ListaSimple.h"
 
 int main()
 {
-    std::cout << "Hello World!\npuuutoooos"; 
+    std::cout << "Hello World!\n"; 
+	List<int> lm("Lista1");
+
+	lm.push_front(30);
+	lm.push_front(20);
+	lm.push_front(10);
+	lm.push_back(40);
+	lm.insertarR(5, 0);
+	lm.insertarR(8, 1);
+	lm.insertarR(15, 5);
+	lm.insertarR(50, 99);
+	lm.insertarR(999, 1);
+	lm.print();
+	std::cout << "\n";
+	List<string> la("Personas");
+	la.push_back("ana");
+	la.push_back("juan");
+	la.print();
+	std::cout << "\n";
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
