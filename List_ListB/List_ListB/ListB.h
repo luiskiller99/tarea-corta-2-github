@@ -38,43 +38,53 @@ public:
 	void print();
 	~ListB();
 };
+//luis terminado
 template<class T, int N>
 ListB<T,N>::ListB(string nombre) {
 	nombreLista = nombre;
 }
-
+//luis terminado
 template<class T, int N>
-int ListB<T,N>::len() { return tam; }
-
+int ListB<T,N>::len() { return tam*N; }
+//marco
 template<class T, int N>
 void ListB<T, N>::push_front(T x) {}
-
+//luis
 template<class T, int N>
 void ListB<T, N>::push_back(T x) {}
-
+//marco
 template<class T, int N>
 void ListB<T, N>::insertar(T x, int pos) {}
-
+//luis
 template<class T, int N>
 bool ListB<T, N>::remove(int pos, T &x) {}
-
+//marco
 template<class T, int N>
 bool ListB<T, N>::pop(T &x) {}
-
+//luis
 template<class T, int N>
 bool ListB<T, N>::pop_back(T &x) {}
-
+//marco
 template<class T, int N>
 bool ListB<T, N>::get(int pos, T &element) {}
-
+//luis
 template<class T, int N>
 bool ListB<T, N>::get_front(T &element) {}
-
+//marco
 template<class T, int N>
 bool ListB<T, N>::get_back(T &element) {}
-
+//luis
 template<class T, int N>
-void ListB<T, N>::print() {}
-
+void ListB<T, N>::print() {
+	link p = primero;	
+	std::cout << "\n";
+	while (p) {
+		for (int i = 0; i < N; i++) 
+			std::cout << p->elemento[i] << ", ";
+		std::cout << "\n";
+		p = p->siguiente;
+	}
+}
+//marco
 template<class T, int N>
 ListB<T, N>::~ListB() {}
