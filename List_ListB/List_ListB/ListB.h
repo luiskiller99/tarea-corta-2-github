@@ -10,11 +10,10 @@ private:
 		bool lleno;
 		T elemento[N]; // Cada nodo almacena N elementos
 		struct Nodo * siguiente;
-		Nodo(T x) :elemento{ x }, siguiente{ 0 },
-			lleno{ false } {}
-		Nodo(T x, struct Nodo* sig)
-			:elemento{ x }, siguiente{ sig },
-			lleno{ false } {}
+		// Constructores
+		Node() :lleno{ false }, siguiente{ 0 } {}
+		Node(struct Node * sig) :lleno{ false },
+			siguiente{ sig } {}
 	};
 	typedef struct Nodo * link;
 	link primero; // Puntero al primer nodo de la lista
@@ -45,13 +44,23 @@ ListB<T,N>::ListB(string nombre) {
 }
 //luis terminado
 template<class T, int N>
-int ListB<T,N>::len() { return tam*N; }
-//marco
+int ListB<T,N>::len() { return tam; }
+//marco 
 template<class T, int N>
 void ListB<T, N>::push_front(T x) {}
 //luis
 template<class T, int N>
-void ListB<T, N>::push_back(T x) {}
+void ListB<T, N>::push_back(T x) {
+	//si se tiene que crear nuevo nodo
+	link p = primero;
+	while (p) {
+		if (p->lleno) p = p->siguiente;
+		else {
+		}
+	}
+	//si se agrega normal
+
+}
 //marco
 template<class T, int N>
 void ListB<T, N>::insertar(T x, int pos) {}
