@@ -139,10 +139,15 @@ int main(){
 		las.push_back("roberto");
 		las.push_back("ana");		
 		las.push_back("carlos");
+		las.push_back("carlos");
+		las.push_back("carlos");
+		las.push_back("ana");
 		las.print();
 
 
-		std::cout << "\n remove \n";
+		std::cout << "\n remove \n";		
+		las.remove(1,holiss);
+		std::cout << "\n "<<holiss<<"\n";
 		std::cout << "\n pop back \n";
 	}
 	

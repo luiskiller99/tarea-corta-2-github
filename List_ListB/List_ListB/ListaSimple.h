@@ -114,6 +114,7 @@ bool List<T>::remove(int pos, T & x){
 			primero = primero->siguiente;
 			delete p;
 			p = NULL;
+			tam--;
 			return true;
 		}
 		//resto de posiciones
@@ -123,6 +124,7 @@ bool List<T>::remove(int pos, T & x){
 			p->siguiente = p->siguiente->siguiente;
 			delete j;
 			j = NULL;
+			tam--;
 			return true;						
 		}	
 		p = p->siguiente;

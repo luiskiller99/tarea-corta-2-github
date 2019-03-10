@@ -42,7 +42,6 @@ template<class T, int N>
 ListB<T,N>::ListB(string nombre) {
 	nombreLista = nombre;
 	primero = new Nodo();
-	//primero = NULL;
 	tam = 0;
 }
 //luis terminado
@@ -79,8 +78,27 @@ void ListB<T, N>::insertar(T x, int pos) {}
 //luis por terminar
 template<class T, int N>
 bool ListB<T, N>::remove(int pos, T &x) {
+	int poss = pos, nums_restantes = 0,cont_nodos=0;
+	while (poss - N >= 0){
+		poss -= N;	
+		cont_nodos++;
+	}
+	nums_restantes = poss;
 
-
+	link p = primero;
+	for (int i = 0; i < (tam/N); i++) {//contando los nodos
+		if (i == cont_nodos) {						
+			x = p->elemento[nums_restantes];	
+			//mover todos los que siguen hacia adelante
+			//si tiene siguiente
+			while (p->siguiente){
+				for (int j = 0) {}//de esta posicion en adelante modificar todos los numeros
+			}
+			//si es el ultimo nodo
+		}
+		p = p->siguiente;
+	}
+	return true;
 }
 //marco
 template<class T, int N>
