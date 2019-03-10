@@ -6,6 +6,7 @@
 #include "pch.h"
 #include <iostream>
 #include "ListaSimple.h"
+#include "ListB.h"
 
 int main(){    
 	/*lista numeros*/
@@ -52,6 +53,12 @@ int main(){
 		la.remove(1, holiss);
 		std::cout << "\nelimino a :" << holiss << "\n";
 		la.print();
+		la.remove(0, holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		la.remove(0, holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
 		std::cout << "\n";
 	}
 	/*Prueva de pop*/
@@ -72,6 +79,12 @@ int main(){
 		la.pop(holiss);
 		std::cout << "\nelimino a :" << holiss << "\n";
 		la.print();
+		la.pop(holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		la.pop(holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();		
 		std::cout << "\n";
 	}
 	/*Prueba de popback*/
@@ -92,10 +105,47 @@ int main(){
 		la.pop_back(holiss);
 		std::cout << "\nelimino a :" << holiss << "\n";
 		la.print();
+		la.pop_back(holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
+		la.pop_back(holiss);
+		std::cout << "\nelimino a :" << holiss << "\n";
+		la.print();
 		std::cout << "\n";
 	}
+	/*prueba de ListB*/
+	else if(true){
+		std::cout << "\n";
+		std::cout << "\n PARTE ListB \n";
 	
-	std::cout << "\n";
+		ListB<int, 3> el("Numeros");
+		std::cout << "\n push back \n";
+		el.push_back(45);
+		el.push_back(67);
+		el.push_back(64);
+		el.push_back(37);
+		el.push_back(67);
+		el.push_back(67);
+		el.push_back(67);
+		el.push_back(67);	
+		el.push_back(67);
+		el.push_back(45);
+
+		el.print();
+
+		ListB<string, 3> las("nombres");
+		std::cout << "\n push back \n";		
+		las.push_back("Luis");
+		las.push_back("roberto");
+		las.push_back("ana");		
+		las.push_back("carlos");
+		las.print();
+
+
+		std::cout << "\n remove \n";
+		std::cout << "\n pop back \n";
+	}
+	
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar

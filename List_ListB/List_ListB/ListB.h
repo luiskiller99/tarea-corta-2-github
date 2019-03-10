@@ -11,8 +11,8 @@ private:
 		T elemento[N]; // Cada nodo almacena N elementos
 		struct Nodo * siguiente;
 		// Constructores
-		Node() :lleno{ false }, siguiente{ 0 } {}
-		Node(struct Node * sig) :lleno{ false },
+		Nodo() :lleno{ false }, siguiente{ 0 } {}
+		Nodo(struct Nodo * sig) :lleno{ false },
 			siguiente{ sig } {}
 	};
 	typedef struct Nodo * link;
@@ -41,6 +41,9 @@ public:
 template<class T, int N>
 ListB<T,N>::ListB(string nombre) {
 	nombreLista = nombre;
+	primero = new Nodo();
+	//primero = NULL;
+	tam = 0;
 }
 //luis terminado
 template<class T, int N>
@@ -48,51 +51,72 @@ int ListB<T,N>::len() { return tam; }
 //marco 
 template<class T, int N>
 void ListB<T, N>::push_front(T x) {}
-//luis
+//luis terminada
 template<class T, int N>
-void ListB<T, N>::push_back(T x) {
-	//si se tiene que crear nuevo nodo
+void ListB<T, N>::push_back(T x) {	
 	link p = primero;
 	while (p) {
-		if (p->lleno) p = p->siguiente;
-		else {
+		//si esta lleno crea uno nuevo
+		if (p->lleno) { 
+			if (p->siguiente)
+				p = p->siguiente;
+			else {
+				p->siguiente = new Nodo();
+			}
 		}
-	}
-	//si se agrega normal
-
+		//si aun no esta lleno
+		else {
+			p->elemento[(tam % N) ] = x;
+			tam++;
+			if ((tam%N) == 0) p->lleno = true; //verifica si con esa insercion se llena
+			break;
+		}
+	}		
 }
 //marco
 template<class T, int N>
 void ListB<T, N>::insertar(T x, int pos) {}
-//luis
+//luis por terminar
 template<class T, int N>
-bool ListB<T, N>::remove(int pos, T &x) {}
+bool ListB<T, N>::remove(int pos, T &x) {
+
+
+}
 //marco
 template<class T, int N>
 bool ListB<T, N>::pop(T &x) {}
-//luis
+//luis por terminar
 template<class T, int N>
 bool ListB<T, N>::pop_back(T &x) {}
 //marco
 template<class T, int N>
 bool ListB<T, N>::get(int pos, T &element) {}
-//luis
+//luis por terminar
 template<class T, int N>
 bool ListB<T, N>::get_front(T &element) {}
 //marco
 template<class T, int N>
 bool ListB<T, N>::get_back(T &element) {}
-//luis
+//luis terminado
 template<class T, int N>
 void ListB<T, N>::print() {
-	link p = primero;	
-	std::cout << "\n";
+	link p = primero;		
+	std::cout << "[\n";
 	while (p) {
-		for (int i = 0; i < N; i++) 
-			std::cout << p->elemento[i] << ", ";
+		for (int i = 0; i < N; i++) {
+			if(p->siguiente)
+				std::cout << p->elemento[i] << ", ";
+			else {
+				if (i < (tam%N) || p->lleno)
+					std::cout << p->elemento[i] << ", ";
+				else
+					break;
+			}
+		}
 		std::cout << "\n";
 		p = p->siguiente;
 	}
+	std::cout << "]";
 }
 //marco
 template<class T, int N>

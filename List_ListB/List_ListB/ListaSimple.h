@@ -1,4 +1,4 @@
-#pragma once
+#pragma }once
 #include <iostream>
 #include <string>
 using std::string;
@@ -106,24 +106,24 @@ void List<T>::insertarR(T x, int pos) {
 template<class T>
 bool List<T>::remove(int pos, T & x){
 	int cont = 0;
-	link p = primero;
-	//caso especial para primera pocision
-	if (pos == 0) {
-		link aux = p;
-		primero = p->siguiente;
-		x = aux->elemento;
-		delete aux;
-		return true;
-	}
-	//para el resto de posiciones
+	link p = primero;	
 	while (p) {
-		if (pos == ++cont) {			
-			link aux = p->siguiente;
-			p->siguiente = p->siguiente->siguiente;
-			x = aux->elemento;
-			delete aux;
-			tam--;
+		//para eliminar primero
+		if (pos == 0) {
+			x = primero->elemento;			
+			primero = primero->siguiente;
+			delete p;
+			p = NULL;
 			return true;
+		}
+		//resto de posiciones
+		else if (pos == ++cont) {			
+			x = p->siguiente->elemento;
+			link j = p->siguiente;
+			p->siguiente = p->siguiente->siguiente;
+			delete j;
+			j = NULL;
+			return true;						
 		}	
 		p = p->siguiente;
 	}
@@ -132,29 +132,49 @@ bool List<T>::remove(int pos, T & x){
 //luis listo
 template<class T>
 bool List<T>::pop(T & x){	
-	if (tam >= 1) {
+	if (tam > 1) {
+		x = primero->elemento;
 		link p = primero;
-		link aux = p;
-		primero = p->siguiente;
-		x = aux->elemento;
-		delete aux;
+		primero = primero->siguiente;
+		delete p;
+		p = NULL;
+		tam--;
+		return true;		
+	}
+	
+	else if (tam == 1) {
+		link p = primero;
+		x = primero->elemento;		
+		delete primero;
+		primero = NULL;
+		tam--;
 		return true;
 	}
-	return false;
+	else
+		return false;
 }
-//luis no realizada, preguntar al profe
+//luis listo
 template<class T>
 bool List<T>::pop_back(T & x){	
 	link p = primero;
-	if (tam >= 1) {
-		while (p->siguiente)  
+	if (tam > 1) {
+		while (p->siguiente->siguiente)
 			p = p->siguiente;			
-		x = p->elemento;
-		tam--;
-		delete p;
+		x = p->siguiente->elemento;
+		delete p->siguiente;
+		p->siguiente = NULL;		
+		tam--;		
 		return true;
 	}
-	return false;
+	else if(tam==1){
+		x = p->elemento;
+		delete p;
+		primero = NULL;		
+		tam--;
+		return true;
+	}
+	else
+		return false;
 }
 //marco
 template<class T>
