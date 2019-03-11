@@ -7,8 +7,83 @@
 #include <iostream>
 #include "ListaSimple.h"
 #include "ListB.h"
+void pruebas_ListB() {
 
-int main(){    
+	std::cout << "\n";
+	std::cout << "\n PARTE ListB \n";
+	string holiss;
+	ListB<int, 3> el("Numeros");
+	std::cout << "\n push back \n";
+	el.push_back(45);
+	el.push_back(67);
+	el.push_back(64);
+	el.push_back(37);
+	el.push_back(67);
+	el.push_back(67);
+	el.push_back(67);
+	el.push_back(67);
+	el.push_back(67);
+	el.push_back(45);
+
+	el.print();
+
+	ListB<string, 3> las("nombres");
+	std::cout << "\n push back \n";
+	las.push_back("Luis");
+	las.push_back("roberto");
+	las.push_back("ana");
+	las.push_back("pao");
+	las.push_back("susana");
+	las.push_back("carlos");
+	las.push_back("pri");
+	las.print();
+
+
+	std::cout << "\n remove \n";
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();	
+	std::cout << "\n\n";	
+
+	std::cout << "\n pop back \n";
+}
+void pruebas_List() {
 	/*lista numeros*/
 	List<int> lm("Lista1");
 	lm.push_front(30);
@@ -32,124 +107,89 @@ int main(){
 
 	int holis;
 	string holiss;
-	/*Prueba de remove*/
-	if (false) {
-		std::cout << "\nPrueba del remove en List<int>\n";
-		lm.remove(0, holis);
-		std::cout << "\nelimino a :" << holis << "\n";
-		lm.print();
-		lm.remove(4, holis);
-		std::cout << "\nelimino a :" << holis << "\n";
-		lm.print();
-		lm.remove(6, holis);
-		std::cout << "\nelimino a :" << holis << "\n";
-		lm.print();
-		std::cout << "\n";
+	std::cout << "\nPrueba del remove en List<int>\n";
+	lm.remove(0, holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	lm.remove(4, holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	lm.remove(6, holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	std::cout << "\n";
 
-		std::cout << "\nPrueba del remove en List<String>\n";
-		la.remove(0, holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.remove(1, holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.remove(0, holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.remove(0, holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		std::cout << "\n";
-	}
-	/*Prueva de pop*/
-	else if(false) {		
-		std::cout << "\nPrueba del pop en List<int>\n";
-		lm.pop(holis);
-		std::cout << "\nelimino a :" << holis << "\n";
-		lm.print();
-		lm.pop(holis);
-		std::cout << "\nelimino a :" << holis << "\n";
-		lm.print();
-		std::cout << "\n";
+	std::cout << "\nPrueba del remove en List<String>\n";
+	la.remove(0, holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.remove(1, holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.remove(0, holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.remove(0, holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	std::cout << "\n";
 
-		std::cout << "\nPrueba del pop en List<String>\n";
-		la.pop(holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.pop(holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.pop(holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.pop(holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();		
-		std::cout << "\n";
-	}
-	/*Prueba de popback*/
-	else if (false) {
-		std::cout << "\nPrueba del popback en List<int>\n";
-		lm.pop_back(holis);
-		std::cout << "\nelimino a :" << holis << "\n";
-		lm.print();
-		lm.pop_back(holis);
-		std::cout << "\nelimino a :" << holis << "\n";
-		lm.print();
-		std::cout << "\n";
+	std::cout << "\nPrueba del pop en List<int>\n";
+	lm.pop(holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	lm.pop(holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	std::cout << "\n";
 
-		std::cout << "\nPrueba del popback en List<String>\n";
-		la.pop_back(holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.pop_back(holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.pop_back(holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		la.pop_back(holiss);
-		std::cout << "\nelimino a :" << holiss << "\n";
-		la.print();
-		std::cout << "\n";
-	}
-	/*prueba de ListB*/
-	else if(true){
-		std::cout << "\n";
-		std::cout << "\n PARTE ListB \n";
-	
-		ListB<int, 3> el("Numeros");
-		std::cout << "\n push back \n";
-		el.push_back(45);
-		el.push_back(67);
-		el.push_back(64);
-		el.push_back(37);
-		el.push_back(67);
-		el.push_back(67);
-		el.push_back(67);
-		el.push_back(67);	
-		el.push_back(67);
-		el.push_back(45);
+	std::cout << "\nPrueba del pop en List<String>\n";
+	la.pop(holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.pop(holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.pop(holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.pop(holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	std::cout << "\n";
+	std::cout << "\nPrueba del popback en List<int>\n";
+	lm.pop_back(holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	lm.pop_back(holis);
+	std::cout << "\nelimino a :" << holis << "\n";
+	lm.print();
+	std::cout << "\n";
 
-		el.print();
-
-		ListB<string, 3> las("nombres");
-		std::cout << "\n push back \n";		
-		las.push_back("Luis");
-		las.push_back("roberto");
-		las.push_back("ana");		
-		las.push_back("carlos");
-		las.push_back("carlos");
-		las.push_back("carlos");
-		las.push_back("ana");
-		las.print();
-
-
-		std::cout << "\n remove \n";		
-		las.remove(1,holiss);
-		std::cout << "\n "<<holiss<<"\n";
-		std::cout << "\n pop back \n";
-	}
+	std::cout << "\nPrueba del popback en List<String>\n";
+	la.pop_back(holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.pop_back(holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.pop_back(holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	la.pop_back(holiss);
+	std::cout << "\nelimino a :" << holiss << "\n";
+	la.print();
+	std::cout << "\n";
+}
+int main(){    	
+	/*Prueba de remove, pop, popback*/
+	/*List  luis*/
+	if (false) 
+		pruebas_List();
+	/*Prueba de ,,,,,,,*/
+	/*ListB luis*/
+	else if(true)
+		pruebas_ListB();
 	
 }
 
