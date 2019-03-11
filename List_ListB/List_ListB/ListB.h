@@ -17,12 +17,13 @@ private:
 	};
 	typedef struct Nodo * link;
 	link primero; // Puntero al primer nodo de la lista
-	int tam; // Cantidad de elementos de la lista
+	//int tam; // Cantidad de elementos de la lista
 	string nombreLista; // Nombre de la lista
 	// Métodos privados
 	// Acá se incluyen los métodos privados que se requieran.
 
 public:
+	int tam; // Cantidad de elementos de la lista
 	ListB(string nombre);
 	int len();
 	void push_front(T x);
@@ -53,29 +54,36 @@ void ListB<T, N>::push_front(T x) {}
 //luis terminada
 template<class T, int N>
 void ListB<T, N>::push_back(T x) {	
-	link p = primero;
-	while (p) {
-		//si esta lleno crea uno nuevo
-		if (p->lleno) { 
-			if (p->siguiente)
-				p = p->siguiente;
-			else {
-				p->siguiente = new Nodo();
+	
+	if(primero){
+		link p = primero;
+		while (p) {
+			//si esta lleno crea uno nuevo
+			if (p->lleno) { 
+				if (p->siguiente)
+					p = p->siguiente;
+				else {
+					p->siguiente = new Nodo();
+				}
+			}
+			//si aun no esta lleno
+			else {				
+				p->elemento[(tam++ % N) ] = x;												
+				if ((tam%N) == 0) p->lleno = true; //verifica si con esa insercion se llena				
+				break;
 			}
 		}
-		//si aun no esta lleno
-		else {
-			p->elemento[(tam % N) ] = x;
-			tam++;
-			if ((tam%N) == 0) p->lleno = true; //verifica si con esa insercion se llena
-			break;
-		}
-	}		
+	}
+	else {		
+		primero = new Nodo();
+		primero->elemento[0] = x;
+		tam++;
+	}
 }
 //marco
 template<class T, int N>
 void ListB<T, N>::insertar(T x, int pos) {}
-//luis por terminar
+//luis terminada
 template<class T, int N>
 bool ListB<T, N>::remove(int pos, T &x) {
 	//optener nodo y posicion en la que se encuentra
@@ -87,15 +95,22 @@ bool ListB<T, N>::remove(int pos, T &x) {
 	nums_restantes = poss;
 	//realiza la modificacion y corrimiento de todos los numeros
 	link p = primero;
+	if (!p || tam == 0) { 
+		delete primero;
+		primero = NULL;
+		return false; 
+	}
+	else if ((tam == 1) && p) {
+		tam--;
+		x = p->elemento[0];
+		delete primero;
+		primero = NULL;
+		return true;
+	}
 	for (int i = 0; i <= (tam/N); i++) {//contando los nodos
 		if (i == cont_nodos) {//si lo encuentra
 			x = p->elemento[nums_restantes];	//guarda nodo		
-			tam--;
-			if (tam == 0) {
-				delete primero;
-				primero = NULL;
-				return true;
-			}
+			tam--;			
 			//mover todos los que siguen hacia adelante
 			//si tiene siguiente				
 			while (p->siguiente) {				
@@ -107,7 +122,7 @@ bool ListB<T, N>::remove(int pos, T &x) {
 				//eliminar nodo potencialmente vacio
 				if (((tam%N) == 1) ) {
 					delete p->siguiente;
-					p->siguiente = NULL;										
+					p->siguiente = NULL;							
 				}				
 			}									
 			//si es el ultimo nodo	
@@ -118,10 +133,8 @@ bool ListB<T, N>::remove(int pos, T &x) {
 			//si nodo pierde elementos, lleno pasa a false
 			if ((tam%N) != 0) {				
 				p->lleno = false;
-			}
-			std::cout << "\nTAMAÑO: " << tam<<"\n";
-			return true;
-			//eliminar ultimo nodo si esta vasido....
+			}			
+			return true;			
 		}
 		p = p->siguiente;
 	}
