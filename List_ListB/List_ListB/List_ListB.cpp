@@ -46,22 +46,7 @@ void pruebas_ListB() {
 	las.print();
 	std::cout << "\n\n";
 
-	las.remove(0, holiss);
-	std::cout << "\n eliminara a : " << holiss << "\n";
-	las.print();
-	std::cout << "\n\n";
-
-	las.remove(0, holiss);
-	std::cout << "\n eliminara a : " << holiss << "\n";
-	las.print();
-	std::cout << "\n\n";	
-
-	las.remove(0, holiss);
-	std::cout << "\n eliminara a : " << holiss << "\n";
-	las.print();
-	std::cout << "\n\n";
-
-	las.remove(0, holiss);
+	las.remove(3, holiss);
 	std::cout << "\n eliminara a : " << holiss << "\n";
 	las.print();
 	std::cout << "\n\n";
@@ -76,43 +61,46 @@ void pruebas_ListB() {
 	las.print();
 	std::cout << "\n\n";	
 
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
 
-	las.push_back("putos");
-	las.print();	
-	las.push_back("putos");
-	las.print();	
-	las.push_back("putos");
-	las.print();	
-	las.push_back("putos");
-	las.print();	
-	las.push_back("putos");
-	las.print();	
-	las.push_back("putos");
-	las.print();
-	las.push_back("putos");
-	las.print();	
-	las.push_back("putos");
-	las.print();	
-	las.push_back("putos");
-	las.print();	
-	las.push_back("putos");
-	las.print();	
-	las.remove(0, holiss);	
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
 	las.print();
 	std::cout << "\n\n";
-	las.remove(0, holiss);	
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
 	las.print();
 	std::cout << "\n\n";
-	las.remove(0, holiss);	
+
+	las.remove(0, holiss);
+	std::cout << "\n eliminara a : " << holiss << "\n";
 	las.print();
-	std::cout << "\n\n";
+	std::cout << "\n\n";	
+
+
+	las.push_back("alonso");
+	las.push_back("alonso");
+	las.push_back("alonso");
+	las.push_back("alonso");
+	las.push_back("alonso"); 
+	las.push_back("alonso");
+	las.push_back("alonso");
+	las.push_back("alonso");
+	las.push_back("alonso");
+	las.push_back("alonso");
+	las.remove(0, holiss);	
+	las.remove(0, holiss);	
+	las.remove(0, holiss);		
 
 	las.remove(2, holiss);
 	las.print();
 	std::cout << "\n\n";
 	
 	std::cout << "\n pop back \n";
-
 	std::cout << "\n get front \n";
 }
 void pruebas_List() {
