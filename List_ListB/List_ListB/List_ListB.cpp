@@ -83,24 +83,36 @@ void pruebas_ListB() {
 
 
 	las.push_back("alonso");
+	las.print();
+	std::cout << "\n\n";
 	las.push_back("alonso");
+	las.print();
+	std::cout << "\n\n";
+	las.push_back("Luis");
+	las.print();
+	std::cout << "\n\n";
 	las.push_back("alonso");
-	las.push_back("alonso");
-	las.push_back("alonso"); 
-	las.push_back("alonso");
-	las.push_back("alonso");
-	las.push_back("alonso");
-	las.push_back("alonso");
-	las.push_back("alonso");
-	las.remove(0, holiss);	
-	las.remove(0, holiss);	
-	las.remove(0, holiss);		
+	las.print();
+	std::cout << "\n\n";
+	las.push_back("ana");
+	las.print();
+	std::cout << "\n\n";
+	
 
-	las.remove(2, holiss);
+	las.remove(1, holiss);		
+
 	las.print();
 	std::cout << "\n\n";
 	
 	std::cout << "\n pop back \n";
+	las.pop_back(holiss);
+	std::cout << "\nSe eliminara a: "<<holiss<<"\n";
+	las.print();
+	std::cout << "\n\n";
+	las.pop_back(holiss);
+	std::cout << "\nSe eliminara a: " << holiss << "\n";
+	las.print();
+	std::cout << "\n\n";
 	std::cout << "\n get front \n";
 }
 void pruebas_List() {

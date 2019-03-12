@@ -1,4 +1,4 @@
-#pragma once
+#pragma }once
 #include <iostream>
 #include <string>
 using std::string;
@@ -143,9 +143,28 @@ bool ListB<T, N>::remove(int pos, T &x) {
 //marco
 template<class T, int N>
 bool ListB<T, N>::pop(T &x) {}
-//luis por terminar
+//luis terminada
 template<class T, int N>
-bool ListB<T, N>::pop_back(T &x) {}
+bool ListB<T, N>::pop_back(T &x) {
+	int nodos = (tam-1) / N, ultima_pos = (tam-1) % N;
+	link p = primero;	
+	for (int i = 0; i < nodos; i++) {		
+		//preguntar si nodo siguiente se tiene que eliminar, decrementar tamaño,optener elemento, eliminar y retornar
+		if (p->siguiente && !p->siguiente->siguiente && (tam%N)==1) {
+			x = p->siguiente->elemento[0];
+			delete p->siguiente;
+			p->siguiente = NULL;
+			tam--;
+			return true;
+		}
+		else p = p->siguiente;
+	}
+	// eliminar ultimo elemento, decrementar tamaño y returnar
+	x = p->elemento[ultima_pos];	
+	tam--;
+	p->elemento[ultima_pos] = "";	
+	return true;
+}
 //marco
 template<class T, int N>
 bool ListB<T, N>::get(int pos, T &element) {}
