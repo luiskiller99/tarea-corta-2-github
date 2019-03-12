@@ -116,8 +116,8 @@ void pruebas_ListB() {
 	std::cout << "\nSe eliminara a: " << holiss << "\n";
 	las.print();
 	std::cout << "\n\n";
-	//las.push_back(holiss);
-	//las.push_back(holiss);
+	las.push_back(holiss);
+	las.push_back(holiss);
 
 	std::cout << "\n get front \n";
 	holiss = "";
