@@ -226,7 +226,7 @@ void pruebas_List() {
 int main(){    	
 	/*Prueba de remove, pop, popback*/
 	/*List  luis*/
-	if (false) 
+	if (true) 
 		pruebas_List();
 	/*Prueba de ,,,,,,,*/
 	/*ListB luis*/
