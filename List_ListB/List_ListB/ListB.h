@@ -143,34 +143,51 @@ bool ListB<T, N>::remove(int pos, T &x) {
 //marco
 template<class T, int N>
 bool ListB<T, N>::pop(T &x) {}
-//luis terminada
+//luis tarminada
 template<class T, int N>
 bool ListB<T, N>::pop_back(T &x) {
 	int nodos = (tam-1) / N, ultima_pos = (tam-1) % N;
-	link p = primero;	
+	link p = primero;
+	bool elimino = false;
+	cout << "\n nodos: " << nodos << " pos: " << ultima_pos<<" tam: "<<tam<<"\n";	
 	for (int i = 0; i < nodos; i++) {		
 		//preguntar si nodo siguiente se tiene que eliminar, decrementar tamaño,optener elemento, eliminar y retornar
 		if (p->siguiente && !p->siguiente->siguiente && (tam%N)==1) {
 			x = p->siguiente->elemento[0];
 			delete p->siguiente;
 			p->siguiente = NULL;
-			tam--;
+			tam--;		
+			elimino = true;
 			return true;
 		}
 		else p = p->siguiente;
 	}
-	// eliminar ultimo elemento, decrementar tamaño y returnar
-	x = p->elemento[ultima_pos];	
-	tam--;
-	p->elemento[ultima_pos] = "";	
-	return true;
+	//si nodo vasio
+	if (tam == 0) {
+		delete primero;
+		primero = nullptr;
+		//para verificar si estaba vacio o si se elimino en este instante
+		if (elimino)  return true; return false;
+	}
+	// eliminar ultimo elemento, decrementar tamaño y returnar y decir que lleno = false
+	else {		
+		x = p->elemento[ultima_pos];
+		tam--;
+		p->elemento[ultima_pos] = "";
+		p->lleno = false;
+		return true;
+	}
 }
 //marco
 template<class T, int N>
 bool ListB<T, N>::get(int pos, T &element) {}
-//luis por terminar
+//luis termianda
 template<class T, int N>
-bool ListB<T, N>::get_front(T &element) {}
+bool ListB<T, N>::get_front(T& element) {
+	if (tam>0) element = primero->elemento[0];
+	else return false;
+	return true;
+}
 //marco
 template<class T, int N>
 bool ListB<T, N>::get_back(T &element) {}
