@@ -222,6 +222,27 @@ void pruebas_List() {
 	std::cout << "\nelimino a :" << holiss << "\n";
 	la.print();
 	std::cout << "\n";
+	List<int>md("listaGets");
+
+	md.push_front(14);
+	md.push_front(25);
+	md.push_front(79);
+	md.push_front(83);
+
+	int x;
+	std::cout << "\nPrueba get:\n";
+	md.print();
+	md.get(2, x);
+	std::cout << "\n el valor en x es: " << x << "\n";
+	std::cout << "\nPrueba get_front:\n";
+	md.print();
+	md.get_front(x);
+	std::cout << "\nEl primer elemento es: " << x << "\n";
+	std::cout << "\nPrueba get_back:\n";
+	md.print();
+	md.get_back(x);
+	std::cout << "\nEl ultimo elemento es: " << x << "\n";
+
 }
 int main(){    	
 	/*Prueba de remove, pop, popback*/

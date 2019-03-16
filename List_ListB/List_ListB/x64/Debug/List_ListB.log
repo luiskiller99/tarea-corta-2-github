@@ -1,3 +1,5 @@
-﻿  List_ListB.cpp
-c:\users\metal\google drive\tec\1 semestre 2019\estructuras de datos\tarea corta 2\tarea corta 2\list_listb\list_listb\listb.h(1): warning C4081: se esperaba 'identificador'; se encontró '}'
-  List_ListB.vcxproj -> C:\Users\metal\Google Drive\TEC\1 semestre 2019\estructuras de datos\tarea corta 2\tarea corta 2\List_ListB\x64\Debug\List_ListB.exe
+﻿  ListB.cpp
+  List_ListB.cpp
+  Generando código...
+  LINK : no se encontró C:\Users\Daniel\source\repos\luiskiller99\tarea-corta-2-github\List_ListB\x64\Debug\List_ListB.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  List_ListB.vcxproj -> C:\Users\Daniel\source\repos\luiskiller99\tarea-corta-2-github\List_ListB\x64\Debug\List_ListB.exe

@@ -1,8 +1,11 @@
-#pragma }once
+#pragma once
 #include <iostream>
 #include <string>
+#include<cstdlib>
+#include <queue>
 using std::string;
 using std::cout;
+using std::queue;
 template <class T, int N = 20>
 class ListB{
 private:
@@ -21,7 +24,7 @@ private:
 	string nombreLista; // Nombre de la lista
 	// Métodos privados
 	// Acá se incluyen los métodos privados que se requieran.
-
+	void insertarNuevamente(queue<T>q);
 public:
 	int tam; // Cantidad de elementos de la lista
 	ListB(string nombre);
@@ -38,6 +41,14 @@ public:
 	void print();
 	~ListB();
 };
+//Marco Extra Cola
+template<class T, int N>
+void ListB<T, N>::insertarNuevamente(queue<T>q) {
+	while (!q.empty()) {
+		this->push_back(q.front());
+		q.pop();
+	}
+}
 //luis terminado
 template<class T, int N>
 ListB<T,N>::ListB(string nombre) {
@@ -48,9 +59,22 @@ ListB<T,N>::ListB(string nombre) {
 //luis terminado
 template<class T, int N>
 int ListB<T,N>::len() { return tam; }
-//marco 
+//marco listo
 template<class T, int N>
-void ListB<T, N>::push_front(T x) {}
+inline void ListB<T, N>::push_front(T x) {
+	std::queue<T> ColaElementos;
+	ColaElementos.push(x);
+	for (int i = 1; i <= tam; i++) {
+		T a;
+		this->get(i, a);
+		ColaElementos.push(a);
+	}
+	tam = 0;
+	this->~ListB();
+	primero = NULL;
+	insertarNuevamente(ColaElementos);
+}
+
 //luis terminada
 template<class T, int N>
 void ListB<T, N>::push_back(T x) {	
@@ -80,9 +104,26 @@ void ListB<T, N>::push_back(T x) {
 		tam++;
 	}
 }
-//marco
+//marco listo
 template<class T, int N>
-void ListB<T, N>::insertar(T x, int pos) {}
+void ListB<T, N>::insertar(T x, int pos) {
+	std::queue<T> ColaElementos;
+	for (int i = 0; i < pos; i++) {
+		T a;
+		this->get(i, a);
+		ColaElementos.push(a);
+	}
+	ColaElementos.push(x);
+	for (int j = pos + 1; j < tam; j++) {
+		T a;
+		this->get(j, a);
+		ColaElementos.push(a);
+	}
+	tam = 0;
+	this->~ListB();
+	primero = NULL;
+	insertarNuevamente(ColaElementos);
+}
 //luis terminada
 template<class T, int N>
 bool ListB<T, N>::remove(int pos, T &x) {
@@ -140,9 +181,27 @@ bool ListB<T, N>::remove(int pos, T &x) {
 	}
 	return false;
 }
-//marco
+//marco listo
 template<class T, int N>
-bool ListB<T, N>::pop(T &x) {}
+bool ListB<T, N>::pop(T &x) {
+	std::queue<T> ColaElementos;
+	if (primero == NULL) {
+		return false;
+	}else {
+		x = primero->elemento[0];
+		
+		for (int i = 1; i < tam; i++) {
+			T a;
+			this->get(i, a);
+			ColaElementos.push(a);
+		}
+	}
+	tam = 0;
+	this->~ListB();
+	primero == NULL;
+	insertarNuevamente(ColaElementos);
+	return true;
+}
 //luis tarminada
 template<class T, int N>
 bool ListB<T, N>::pop_back(T &x) {
@@ -178,9 +237,22 @@ bool ListB<T, N>::pop_back(T &x) {
 		return true;
 	}
 }
-//marco
+//marco listo
 template<class T, int N>
-bool ListB<T, N>::get(int pos, T &element) {}
+bool ListB<T, N>::get(int pos, T &element) {
+	link p = primero;
+	int posicion, numerosRestantes = 0, cantidadNodos;
+	while (posicion - N >= 0) {
+		posicion -= N;
+		p = p->siguiente;
+		cantidadNodos++;
+	}
+	numerosRestantes = posicion;
+	for (int i = 0; i <= (tam / N); i++) {
+		if (i == cantidadNodos);
+		element = p->elemento[numerosRestantes];
+	}
+}
 //luis termianda
 template<class T, int N>
 bool ListB<T, N>::get_front(T& element) {
@@ -188,9 +260,19 @@ bool ListB<T, N>::get_front(T& element) {
 	else return false;
 	return true;
 }
-//marco
+//marco listo
 template<class T, int N>
-bool ListB<T, N>::get_back(T &element) {}
+bool ListB<T, N>::get_back(T &element) {
+	link p = primero;
+	while (p->siguiente) {
+		p = p->siguiente;
+	}
+	if (p->lleno) {
+		element = p->elemento[(tam%N - 1)];
+		return true;
+	}
+	return false;
+}
 //luis terminado
 template<class T, int N>
 void ListB<T, N>::print() {
@@ -212,6 +294,13 @@ void ListB<T, N>::print() {
 	}
 	std::cout << "]";
 }
-//marco
+//marco listo
 template<class T, int N>
-ListB<T, N>::~ListB() {}
+ListB<T, N>::~ListB() {
+	link p;
+	while (primero) {
+		p = primero->siguiente;
+		delete primero;
+		p = primero;
+	}
+}

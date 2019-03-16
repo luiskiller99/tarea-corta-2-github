@@ -178,23 +178,51 @@ bool List<T>::pop_back(T & x){
 	else
 		return false;
 }
-//marco
+//marco listo
 template<class T>
-bool List<T>::get(int pos, T & element)
-{
+bool List<T>::get(int pos, T & element){
+	int posActual = 0;
+	link p = primero;
+
+	while (p) {
+		//si la posicion es la del primer elemento
+		if (pos == 0) {
+			element = primero->elemento;
+			return true;
+		}
+		//resto de posiciones
+		else if (pos == posActual) {
+			element = p->elemento;
+			return true;
+		}
+		posActual++;
+		p = p->siguiente;
+	}
 	return false;
 }
-//marco
+//marco listo
 template<class T>
-bool List<T>::get_front(T & element)
-{
-	return false;
+bool List<T>::get_front(T & element){
+	//si existe el primer nodo
+	if (primero != NULL) {
+		element = primero->elemento;
+		return true;
+	}else{
+		//caso contrario
+		return false;
+	}
 }
-//marco
+//marco listo
 template<class T>
-bool List<T>::get_back(T & element)
-{
-	return false;
+bool List<T>::get_back(T & element){
+	link p = primero;
+	if (p == NULL)
+		return false;
+	while (p->siguiente != NULL) {
+		p = p->siguiente;
+	}
+	element = p->elemento;
+	return true;
 }
 
 template<class T>
